@@ -1,0 +1,22 @@
+name: Go Docker
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+
+    - name: Build go
+      run: go build -v ./...
+
+    - name: Build docker
+      run: docker build . --file Dockerfile --tag catgpt:cr.yandex/crpa35ivsue8ubvsc8ct/cloud-app
