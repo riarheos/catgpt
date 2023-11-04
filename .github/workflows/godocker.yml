@@ -19,4 +19,4 @@ jobs:
       run: go build -v ./...
 
     - name: Build docker
-      run: docker build . --file Dockerfile --tag catgpt:cr.yandex/crpa35ivsue8ubvsc8ct/cloud-app
+      run: docker build . --file Dockerfile --tag cr.yandex/crpa35ivsue8ubvsc8ct/cloud-app:latest
