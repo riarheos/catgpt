@@ -1,0 +1,6 @@
+spec:
+  containers:
+    - command:
+        - /app
+      image: cr.yandex/crpa35ivsue8ubvsc8ct/cloud-app:special
+      name: catgpt
