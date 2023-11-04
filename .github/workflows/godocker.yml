@@ -20,3 +20,11 @@ jobs:
 
     - name: Build docker
       run: docker build . --file Dockerfile --tag cr.yandex/crpa35ivsue8ubvsc8ct/cloud-app:latest
+
+    - name: Login docker
+      env:
+        CLOUD_KEY: ${{ secrets.CLOUD_KEY }}
+      run: echo "$CLOUD_KEY" | docker login --username json_key --password-stdin cr.yandex
+
+    - name: Push docker
+      run: docker push cr.yandex/crpa35ivsue8ubvsc8ct/cloud-app:latest
